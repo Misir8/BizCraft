@@ -1,0 +1,30 @@
+﻿@model Team
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<form method="post">
+    <div class="form-group my-3">
+        <label>Image</label>
+        <img src="~/images/team/@Model.Image" width="200" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <textarea asp-for="Title" readonly class="form-control"></textarea>
+    </div>
+    <div class="form-group">
+        <label asp-for="SubTitle"></label>
+        <textarea asp-for="SubTitle" readonly class="form-control"></textarea>
+    </div>
+
+    <div class="alert alert-danger">
+        Are you sure to delete this Slider?
+    </div>
+
+    <input type="submit" class="btn btn-danger btn-lg btn-block" value="Delete" />
+</form>
+
+<a asp-action="Index" class="btn btn-primary btn-block btn-lg mt-3">Back to Index</a>

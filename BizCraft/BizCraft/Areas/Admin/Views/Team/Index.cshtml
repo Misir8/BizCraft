@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Team>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section styles{ 
+    <style>
+        table td{
+            vertical-align: middle;
+        }
+        th{
+            font-size: 1.4rem;
+        }
+    </style>
+}
+@if (TempData["success_message"] != null)
+{
+    <div class="alert-primary">@TempData["success_message"]</div>
+}
+<a asp-action="create" class="btn btn-block btn-success btn-lg">Create New Team</a>
+<table class="table-bordered table-striped table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>SubTitle</th>
+            <th>Facebook</th>
+            <th>Twitter</th>
+            <th>Google</th>
+            <th>Linkedin</th>
+            <th>Dribble</th>
+            <th>Edit   |   Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var item in Model)
+            {
+             <tr>
+                <th><img src="~/images/team/@item.Image" width="120"/></th>
+                <td>@item.Title</td>
+                <td>@item.SubTitle</td>
+                <td>@item.Facebook</td>
+                <td>@item.Twitter</td>
+                <td>@item.Google</td>
+                <td>@item.Linkedin</td>
+                <td>@item.Dribble</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                    <a asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                </td>
+             </tr>
+            }
+    </tbody>
+</table>
+

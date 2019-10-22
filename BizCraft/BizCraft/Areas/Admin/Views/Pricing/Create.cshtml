@@ -1,0 +1,64 @@
+﻿@model Pricing
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <style>
+        form {
+            margin: 0 2rem;
+        }
+    </style>
+}
+
+
+<form method="post" enctype="multipart/form-data">
+    <h2>Create</h2>
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input type="text" class="form-control" asp-for="Title" name="Title" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input type="text" class="form-control" asp-for="Price" name="Price" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bandwith"></label>
+        <input type="text" class="form-control" asp-for="Bandwith" name="Bandwith" />
+        <span asp-validation-for="Bandwith" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AdWords"></label>
+        <input type="text" class="form-control" asp-for="AdWords" name="AdWords" />
+        <span asp-validation-for="AdWords" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Hosting"></label>
+        <input type="text" class="form-control" asp-for="Hosting" name="Hosting" />
+        <span asp-validation-for="Hosting" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Cart"></label>
+        <input type="text" class="form-control" asp-for="Cart" name="Cart" />
+        <span asp-validation-for="Cart" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Support"></label>
+        <input type="text" class="form-control" asp-for="Support" name="Support" />
+        <span asp-validation-for="Support" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-block btn-lg btn-success" value="Create" />
+</form>
+
+@section scripts{
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+            asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator">
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+            asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+    </script>
+}

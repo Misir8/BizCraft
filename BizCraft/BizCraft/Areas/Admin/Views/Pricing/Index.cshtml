@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Pricing>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{ 
+    <style>
+        h1{
+            display:flex;
+            justify-content: center;
+            color: deepskyblue;
+            margin: 0;
+        }
+    </style>
+}
+    <h1>
+        PRICING TABLE
+    </h1>
+<table class="table-bordered table-striped table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Bandwith</th>
+            <th>Adwords</th>
+            <th>Hosting</th>
+            <th>Cart</th>
+            <th>Support</th>
+            <th>Edit   |   Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.Raw(item.Title)</td>
+                <td>@Html.Raw(item.Price)</td>
+                <td>@item.Bandwith</td>
+                <td>@item.AdWords</td>
+                <td>@item.Hosting</td>
+                <td>@item.Cart</td>
+                <td>@item.Support</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning"><i class="fas fa-pencil-alt"></i></a>
+                    <a asp-action="Remove" asp-route-id="@item.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-action="create" class="btn btn-block btn-success btn-lg">Create New Pricing</a>

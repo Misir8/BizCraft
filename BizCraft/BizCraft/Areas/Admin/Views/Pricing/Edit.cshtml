@@ -1,0 +1,54 @@
+﻿@model Pricing
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <style>
+        form {
+            margin: 0 2rem;
+        }
+
+        [type="submit"] {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+}
+
+
+
+<form asp-action="edit" asp-controller="pricing" asp-route-id="@Model.Id">
+    <h2>Edit</h2>
+    <div class="form-group">
+        <label asp-for="Title" class="control-label"></label>
+        <input type="text" asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Price" class="control-label"></label>
+        <input type="text" asp-for="Price" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Bandwith" class="control-label"></label>
+        <input type="text" asp-for="Bandwith" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="AdWords" class="control-label"></label>
+        <input type="text" asp-for="AdWords" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Hosting" class="control-label"></label>
+        <input type="text" asp-for="Hosting" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Cart" class="control-label"></label>
+        <input type="text" asp-for="Cart" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Support" class="control-label"></label>
+        <input type="text" asp-for="Support" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Update" class="btn btn-warning" />
+    </div>
+</form>

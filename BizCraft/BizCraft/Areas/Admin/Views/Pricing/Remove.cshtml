@@ -1,0 +1,26 @@
+﻿@model BizCraft.Models.Pricing
+@{
+    ViewData["Title"] = "Remove";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+    </style>
+}
+
+<div>
+    <div>
+        <form asp-controller="Pricing" asp-action="Remove" method="post">
+            <div class="form-group">
+                <h1>Are you sure?</h1>
+                <input type="submit" class="btn btn-danger btn-lg btn-block" value="Yes" />
+            </div>
+        </form>
+    </div>
+</div>

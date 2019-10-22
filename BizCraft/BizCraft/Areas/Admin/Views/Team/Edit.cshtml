@@ -1,0 +1,89 @@
+﻿@model Team
+@{
+    ViewData["Title"] = "Edite";
+}
+@section styles{
+    <style>
+        form {
+            margin: 0 2rem;
+        }
+    </style>
+}
+
+
+<form method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <h2>Create</h2>
+    <div class="form-group">
+        <label asp-for="Photo"></label>
+        <input type="file" class="form-control" asp-for="Photo" name="Photo"/>
+        <span asp-validation-for="Photo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label >Current Image</label>
+        <img src="~/images/team/@Model.Image" width="150"/>
+        
+        <input type="hidden" name="Image" value="@Model.Image" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <textarea type="text" class="form-control" asp-for="Title" name="Title" ></textarea>
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SubTitle"></label>
+        <textarea type="text" class="form-control" asp-for="SubTitle" name="Subtitle" ></textarea>
+        <span asp-validation-for="SubTitle" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Facebook"></label>
+        <input type="text" class="form-control" asp-for="Facebook" name="Facebook"/>
+        <span asp-validation-for="Facebook" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Twitter"></label>
+        <input type="text" class="form-control" asp-for="Twitter" name="Twitter"/>
+        <span asp-validation-for="Twitter" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Google"></label>
+        <input type="text" class="form-control" asp-for="Google" name="Google"/>
+        <span asp-validation-for="Google" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Linkedin"></label>
+        <input type="text" class="form-control" asp-for="Linkedin" name="Linkedin"/>
+        <span asp-validation-for="Linkedin" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Dribble"></label>
+        <input type="text" class="form-control" asp-for="Dribble" name="Dribble"/>
+        <span asp-validation-for="Dribble" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-block btn-lg btn-success" value="Update"/>
+    <a asp-action="Index" class="btn btn-primary btn-block btn-lg">Back to Index</a>
+</form>
+
+@section scripts{
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+            asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator">
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+            asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+            asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+    </script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+    <script>
+            ClassicEditor
+                .create( document.querySelector( '#Title' ) )
+                .catch( error => {
+                    console.error( error );
+                } );
+            ClassicEditor
+                        .create( document.querySelector( '#SubTitle' ) )
+                        .catch( error => {
+                            console.error( error );
+                        } );
+        </script>
+}
